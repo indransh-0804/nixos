@@ -7,7 +7,7 @@ flake.nixosModules.torrent = { config, pkgs, ... }:
 
   # 2. Add your personal user to the media group so you can manage the files
   # REPLACE "myuser" WITH YOUR ACTUAL NIXOS USERNAME
-  users.users.myuser.extraGroups = [ "media" ];
+  users.users.indransh.extraGroups = [ "media" ];
 
   # 3. Create the directories automatically with the correct permissions
   systemd.tmpfiles.rules = [

@@ -14,6 +14,7 @@ flake.nixosModules.nixos =
     
     imports = with self.nixosModules; [
     system
+    sops-nix
     filesystem
     indransh
     desktop

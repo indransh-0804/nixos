@@ -35,5 +35,5 @@ flake.nixosModules.torrent = { config, pkgs, ... }:
     enable = true;
     openFirewall = true;
   };
-}
+};
 }

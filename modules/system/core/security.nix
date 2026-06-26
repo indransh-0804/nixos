@@ -48,7 +48,7 @@
       rtkit.enable = true;
 
       sudo = {
-      wheelNeedsPassword = false;
+      wheelNeedsPassword = true;
       extraConfig = # sh 
       '' 
       Defaults pwfeedback

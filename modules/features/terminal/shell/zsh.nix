@@ -1,9 +1,9 @@
 {inputs, ...}:{
-  flake.homeModules.zsh_shell = {
+  flake.homeModules.zsh_shell = {config, ...}: {
     programs.zsh = {
       enable = true;
       defaultKeymap = "emacs";
-      dotDir = "`\${config.xdg.configHome}/zsh`";
+      dotDir = "${config.home.homeDirectory}/zsh";
       autocd = true;
       setOptions = [ 
         "NO_BEEP"
@@ -23,12 +23,12 @@
         ignoreDups = true;
         size = 9999;
         saveNoDups = true;
-        path = "`\${config.programs.zsh.dotDir}/.zsh_history`";
+        path = "${config.home.homeDirectory}/zsh/.zsh_history";
       };
 
 # Zsh Plugins 
       antidote = {
-        enable = true
+        enable = true;
           plugins = [
           "romkatv/powerlevel10k"
           "marlonrichert/zsh-autocomplete"

@@ -12,7 +12,7 @@
           "wheel"
             "networkmanager"
         ];
-        packages = with pkgs ; [ zsh kitty vim git ];  
+        packages = with pkgs ; [ zsh vim git ];  
       };
 
 

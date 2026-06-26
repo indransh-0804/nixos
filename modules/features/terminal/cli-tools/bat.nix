@@ -1,5 +1,5 @@
 {inputs, ...}:{
-flake.homeManager.cli_tools = {
+flake.homeModules.cli_tools = {config, ...}:{
 programs.bat = {
 enable = true;
 };

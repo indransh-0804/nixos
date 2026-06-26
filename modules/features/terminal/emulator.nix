@@ -6,10 +6,46 @@
       extraConfig = ''
         local wezterm = require("wezterm")
         local config = wezterm.config_builder()
-        config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
-        config.font_size = 12.0
+
+config.font = wezterm.font(
+  { -- Normal text
+  family='Monaspace Neon',
+  harfbuzz_features={ 'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08' },
+})
+
+config.font_rules = {
+  { -- Italic
+    intensity = 'Normal',
+    italic = true,
+    font = wezterm.font({
+      family='Maple Mono', -- courier-like
+      style = 'Italic',
+    })
+  },
+
+  { -- Bold
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font( {
+      family='Monaspace Neon',
+      weight='Bold',
+      })
+  },
+
+  { -- Bold Italic
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font( {
+      family='Maple Mono',
+      style='Italic',
+      weight='Bold',
+      }
+    )
+  },
+}
+        config.font_size = 11.0
         config.line_height = 1.2
-        config.color_scheme = "Tokyo Night Storm"
+        config.color_scheme = "Catppuccin Mocha"
         config.window_padding = {
           left = 8,
           right = 8,

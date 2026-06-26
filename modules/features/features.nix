@@ -2,7 +2,8 @@
   flake = {
     nixosModules.features.imports = with self.nixosModules; [
       hyprland
-        sddm
+      sddm
+      editor
     ];
     homeModules.indransh = {config, pkgs, ...}: {
     imports = with self.homeModules; [

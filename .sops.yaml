@@ -2,8 +2,14 @@
 keys:
   - &nixos_key age1z6pk4gm5tafj4yfa50t4j8s6g4qc2uppwfk3tmtpanyfex6ldd6quc8x8y
 
+  
 creation_rules:
-  - path_regex: secrets/secrets.yaml$
+  - path_regex: secrets/github_ssh.yaml$
+    key_groups:
+      - age:
+          - *nixos_key
+
+  - path_regex: secrets/media.yaml$
     key_groups:
       - age:
           - *nixos_key

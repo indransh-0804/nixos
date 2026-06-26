@@ -4,7 +4,7 @@
       hyprland
         sddm
     ];
-    homeModules.indransh = {config, ...}: {
+    homeModules.indransh = {config, pkgs, ...}: {
       home = {
         username = "indransh";
         homeDirectory = "/home/indransh";

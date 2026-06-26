@@ -23,7 +23,9 @@ flake.nixosModules.packages = {
     gnome.gvfs
     nemo-with-extensions
     xdg-user-dirs
-    vlc
+    mpv
+    haruna
+    totem
     brightnessctl
     pavucontrol
     playerctl

@@ -13,27 +13,32 @@ flake.nixosModules.torrent = { config, pkgs, ... }:
     "d /data/media/downloads 2775 root media - -"
   ];
 
-  services.sonarr = {
+  environment.systemPackages = with pkgs; [
+  qbittorrent
+  ];
+
+  services = {
+  sonarr = {
     enable = true;
     openFirewall = true;
     group = "media"; # Forces Sonarr to run under the media group
   };
 
-  services.radarr = {
+  radarr = {
     enable = true;
     openFirewall = true;
     group = "media"; 
   };
 
-  services.qbittorrent = {
-    enable = true;
-    openFirewall = true;
+  qbittorrent = {
+    enable = false;
     group = "media"; 
   };
 
-  services.prowlarr = {
+  prowlarr = {
     enable = true;
     openFirewall = true;
+  };
   };
 };
 }

@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, inputs, ... }: {
   flake.nixosModules = {
     indransh =
     { pkgs, ... }:  
@@ -24,7 +24,7 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
-        extraSpecialArgs = {inherit inputd; };
+        extraSpecialArgs = {inherit inputs; };
         backupFileExtension = "hm-backup";
         users.indransh = self.homeModules.indransh;
       };

@@ -11,10 +11,10 @@
         config.line_height = 1.2
         config.color_scheme = "Tokyo Night Storm"
         config.window_padding = {
-          left = 4,
-          right = 4,
-          top = 2,
-          bottom = 2,
+          left = 8,
+          right = 8,
+          top = 6,
+          bottom = 6,
         }
         config.window_decorations = "NONE"
         config.window_background_opacity = 1.0
@@ -39,8 +39,42 @@
         config.warn_about_missing_glyphs = false
         config.term = "wezterm"
         local act = wezterm.action
+        config.keys = {
+          -- splits
+          { key = "e", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+          { key = "o", mods = "CTRL|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+
+          -- pane navigation
+          { key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
+          { key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
+          { key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
+          { key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
+
+          -- close pane
+          { key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
+
+          -- font size
+          { key = "=", mods = "CTRL", action = act.IncreaseFontSize },
+          { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+          { key = "0", mods = "CTRL", action = act.ResetFontSize },
+
+          -- copy/paste
+          { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
+          { key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+
+          -- scroll
+          { key = "u", mods = "CTRL|SHIFT", action = act.ScrollByPage(-0.5) },
+          { key = "d", mods = "CTRL|SHIFT", action = act.ScrollByPage(0.5) },
+
+          -- search
+          { key = "f", mods = "CTRL|SHIFT", action = act.Search("CurrentSelectionOrEmptyString") },
+          
+          -- enter copy mode (vim-style selection)
+          { key = "Space", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
+        }
+        
         return config
-      '';
+        '';
     };
   };
-}
+               }

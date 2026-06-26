@@ -8,10 +8,10 @@ flake.nixosModules.fonts = { pkgs, ... }:
       libertinus
       (google-fonts.override { fonts = [ "Inter" ]; })
 
-      jetbrains-mono
-
-      nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+
+      monaspace
+      maple-mono.variable
     ];
 
     enableDefaultPackages = false;
@@ -19,7 +19,7 @@ flake.nixosModules.fonts = { pkgs, ... }:
     fontconfig.defaultFonts = {
       serif = [ "Libertinus Serif" ];
       sansSerif = [ "Inter" ];
-      monospace = [ "JetBrains Mono Nerd Font" ];
+      monospace = [ "Monaspace Neon" "Maple Mono" ];
     };
   };
 };

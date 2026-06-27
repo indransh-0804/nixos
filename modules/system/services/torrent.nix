@@ -24,6 +24,16 @@ flake.nixosModules.torrent = { config, pkgs, ... }:
     group = "media"; # Forces Sonarr to run under the media group
   };
 
+  lidarr = {
+    enable = true;
+    openFirewall = true;
+    group = "media"; # Forces Sonarr to run under the media group
+  };
+  jellyfin = {
+    enable = true;
+    openFirewall = true;
+    group = "media"; # Forces Sonarr to run under the media group
+  };
   radarr = {
     enable = true;
     openFirewall = true;

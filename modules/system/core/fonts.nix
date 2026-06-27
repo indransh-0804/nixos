@@ -3,23 +3,18 @@ flake.nixosModules.fonts = { pkgs, ... }:
 {
   fonts = {
     packages = with pkgs; [
-      material-symbols
-
-      libertinus
-      (google-fonts.override { fonts = [ "Inter" ]; })
-
       nerd-fonts.symbols-only
-
-      monaspace
-      maple-mono.variable
+      maple-mono.NF
+      inter
+      fira-code
     ];
 
     enableDefaultPackages = false;
 
     fontconfig.defaultFonts = {
-      serif = [ "Libertinus Serif" ];
+      serif = [ "Inter" ];
       sansSerif = [ "Inter" ];
-      monospace = [ "Monaspace Neon" "Maple Mono" ];
+      monospace = [ "Maple Mono NF" "Fira Code" ];
     };
   };
 };

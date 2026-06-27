@@ -11,7 +11,8 @@ flake.nixosModules.packages = {
   };
 
   environment.systemPackages = with pkgs; [
-    ripgrep
+  sops
+  age
     wget
     wl-clipboard
     btop
@@ -24,8 +25,6 @@ flake.nixosModules.packages = {
     nemo-with-extensions
     xdg-user-dirs
     mpv
-    haruna
-    totem
     brightnessctl
     pavucontrol
     playerctl

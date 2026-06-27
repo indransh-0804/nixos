@@ -29,7 +29,6 @@
       tmp.cleanOnBoot = true;
       plymouth = {
         enable = true;
-        theme = "breeze";
       };
     };
   };

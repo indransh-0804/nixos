@@ -3,7 +3,7 @@
     nixosModules.features.imports = with self.nixosModules; [
       hyprland
       sddm
-      editor
+      media
     ];
     homeModules.indransh = {config, pkgs, ...}: {
     imports = with self.homeModules; [

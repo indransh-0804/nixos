@@ -9,8 +9,14 @@
 
 config.font = wezterm.font(
   { -- Normal text
-  family='Monaspace Neon',
-  harfbuzz_features={ 'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08' },
+  family='Fira Code',
+  harfbuzz_features={ 
+  'calt', 'liga', 'dlig',
+  'cv06', 'cv09', 'cv14',
+  'cv29', 'cv30', 'cv31',
+  'cv25', 'cv26', 'cv27',
+  'cv28', 'cv26', 'cv32',
+  'ss04', 'ss07', },
 })
 
 config.font_rules = {
@@ -18,7 +24,7 @@ config.font_rules = {
     intensity = 'Normal',
     italic = true,
     font = wezterm.font({
-      family='Maple Mono', -- courier-like
+      family='Maple Mono NF', -- courier-like
       style = 'Italic',
     })
   },
@@ -27,7 +33,7 @@ config.font_rules = {
     intensity = 'Bold',
     italic = false,
     font = wezterm.font( {
-      family='Monaspace Neon',
+      family='Fira Code',
       weight='Bold',
       })
   },
@@ -36,7 +42,7 @@ config.font_rules = {
     intensity = 'Bold',
     italic = true,
     font = wezterm.font( {
-      family='Maple Mono',
+      family='Maple Mono NF',
       style='Italic',
       weight='Bold',
       }
@@ -61,10 +67,9 @@ config.font_rules = {
         config.cursor_blink_ease_in = "Constant"
         config.cursor_blink_ease_out = "Constant"
         config.cursor_blink_rate = 0
-        config.max_fps = 120
-        config.front_end = "WebGpu"
-        config.webgpu_power_preference = "HighPerformance"
-        config.scrollback_lines = 5000
+        config.max_fps = 60
+        config.front_end = "OpenGL"
+        config.scrollback_lines = 3999
         config.audible_bell = "Disabled"
         config.visual_bell = {
           fade_in_duration_ms = 0,
@@ -72,43 +77,8 @@ config.font_rules = {
           target = "CursorColor",
         }
         config.check_for_updates = false
-        config.warn_about_missing_glyphs = false
+        config.warn_about_missing_glyphs = true
         config.term = "wezterm"
-        local act = wezterm.action
-        config.keys = {
-          -- splits
-          { key = "e", mods = "CTRL|SHIFT", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-          { key = "o", mods = "CTRL|SHIFT", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-
-          -- pane navigation
-          { key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
-          { key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
-          { key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
-          { key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
-
-          -- close pane
-          { key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
-
-          -- font size
-          { key = "=", mods = "CTRL", action = act.IncreaseFontSize },
-          { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
-          { key = "0", mods = "CTRL", action = act.ResetFontSize },
-
-          -- copy/paste
-          { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
-          { key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
-
-          -- scroll
-          { key = "u", mods = "CTRL|SHIFT", action = act.ScrollByPage(-0.5) },
-          { key = "d", mods = "CTRL|SHIFT", action = act.ScrollByPage(0.5) },
-
-          -- search
-          { key = "f", mods = "CTRL|SHIFT", action = act.Search("CurrentSelectionOrEmptyString") },
-          
-          -- enter copy mode (vim-style selection)
-          { key = "Space", mods = "CTRL|SHIFT", action = act.ActivateCopyMode },
-        }
-        
         return config
         '';
     };

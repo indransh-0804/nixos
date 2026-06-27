@@ -16,6 +16,7 @@ flake.nixosModules.nixos =
     i18n.defaultLocale = "en_US.UTF-8";
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.hostPlatform = "x86_64-linux";
+environment.pathsToLink = [ "/share/zsh" ];
     hardware.cpu.intel.updateMicrocode = true;
     system.stateVersion = "26.05";  # <- Never Ever Change That
   };

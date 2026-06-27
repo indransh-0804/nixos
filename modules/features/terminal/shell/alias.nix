@@ -15,9 +15,9 @@ let
     mv     = "mv -iv";
     rm     = "rm -iv";
     mkdir  = "mkdir -pv";
-    nr     = "nh os switch -H nixos -v";
+    nr     = "nh os switch -H nixos";
     nu     = "nh os switch -H nixos --update -v";
-    nc     = "nh clean all --keep 3 -v";
+    nc     = "nh clean all --keep 3";
   };
 in {
   flake.homeModules.zsh_shell = {

@@ -5,13 +5,13 @@
     initContent =
       let
  # zsh_init.nix
-zshEarlyInit = ''
+zshEarlyInit = lib.mkOrder 500''
   typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
   if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
     source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
   fi
     zmodload zsh/complist
-    autoload -U compinit; compinit
+    autoload -U compinit && compinit
 ''; 
         zshCompInit = lib.mkOrder 550 ''
     zstyle ':completion:*' completer _extensions _complete _approximate
@@ -24,8 +24,8 @@ zshEarlyInit = ''
     zstyle ':completion:*' menu yes
     zstyle ':completion:*' complete-options true
     zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
-    zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
-    zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+    zstyle ':completion:*:*:*:*:descriptions' format ' '
+    zstyle ':completion:*:*:*:*:messages' format ' '
     zstyle ':completion:*:*:*:*:warnings' format ' '
     zstyle ':completion:*:*:*:*:default' list-colors ''${(s.:.)LS_COLORS}
     zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
@@ -38,10 +38,7 @@ zshEarlyInit = ''
           compdef _files cat
         '';
 
-        zshConfig = lib.mkOrder 1000 ''
-          eval "$(fzf --zsh)"
-          eval "$(zoxide init zsh)"
-          eval "$(direnv hook zsh)"
+        zshConfig = ''
           [[ -f ~/zsh/.p10k.zsh ]] && source ~/zsh/.p10k.zsh
         '';
       in

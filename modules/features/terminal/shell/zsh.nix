@@ -10,7 +10,7 @@
         "CORRECT"
       ];
 
-# Highlight and Suggestions
+# Zsh Features 
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
@@ -32,7 +32,7 @@
           plugins = [
           "romkatv/powerlevel10k"
           "marlonrichert/zsh-autocomplete"
-          "Aloxaf/fzf-tab"
+          # "Aloxaf/fzf-tab"
           ];
       };
     };

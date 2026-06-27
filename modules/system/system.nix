@@ -13,7 +13,6 @@
       location
       power
       nix
-      torrent
       packages
   ];
                     }

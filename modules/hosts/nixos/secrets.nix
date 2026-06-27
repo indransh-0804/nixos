@@ -22,6 +22,7 @@ imports = [ inputs.sops-nix.nixosModules.sops ];
 "prowlarr/password" = {};
 "jellyfin/api_key" = {};
 "jellyfin/indranshs_password" = {};
+"qbittorrent/password" = {};
   };
 };
 };

@@ -1,5 +1,5 @@
 {inputs, ...}:{
-  flake.nixosModules.media = {
+  flake.nixosModules.media = {config, ...}:{
     nixflix = {
 
       prowlarr = {
@@ -37,7 +37,6 @@
 
       recyclarr = {
         enable = true;
-        cleanupUnmanagedProfiles = true;
       };
 
     };

@@ -2,16 +2,13 @@
   flake.nixosModules.media = {config, lib, ...}:{
     nixflix.torrentClients.qbittorrent = {
       enable = true;
+      user = "indransh";
       group = "media";
-      user = "indranshs";
+      downloadsDir = "$${config.nixflix.downloadsDir}"
+      serverConfig.Preferences.WebUI = {
+        Password_PBKDF2 = "@ByteArray(ARQ77eY1N UZaQsuDHbIMCA==:0WMRkYTUWVT9wVvdDtHAjU9 b3b7uB8NR1Gur2hmQCvСDpm39Q+PsJRJPaCU51dE iz+dTzh8qbPsL8WkFljQYFQ==)"
+      };  
       password._secret = config.sops.secrets."qbittorrent/password".path;
-      categories = {
-radarr = lib.optionalString (config.nixflix.radarr.enable or false) "/data/media/downloads/radarr";
-sonarr = lib.optionalString (config.nixflix.sonarr.enable or false) "/data/media/downloads/sonarr";
-lidarr = lib.optionalString (config.nixflix.lidarr.enable or false) "/data/media/downloads/lidarr";
-prowlarr = lib.optionalString (config.nixflix.prowlarr.enable or false) "/data/media/downloads/prowlarr";
-};
-};
-};
-}
-
+    };
+  };
+              }

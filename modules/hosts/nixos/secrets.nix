@@ -6,10 +6,9 @@ inputs.nixpkgs.follows = "nixpkgs";
 flake.nixosModules.sops-nix = {config, ...}: {
 imports = [ inputs.sops-nix.nixosModules.sops ];
   sops = { 
-  defaultSopsFile = ./secrets/secrets.yaml;
+  defaultSopsFile = ../../../secrets/secrets.yaml;
   age = {
-  keyFile = "/home/indransh/.config/sops/age/key.txt";
-  generateKey = true;
+  keyFile = "/home/indransh/.config/sops/age/keys.txt";
   };
   secrets = { 
 "sonarr/api_key" = {};

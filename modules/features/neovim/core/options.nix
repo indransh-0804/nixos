@@ -1,6 +1,11 @@
 {inputs, ...}:{
-  flake.nixosModules.neovim = {...}:{
+  flake.nixosModules.neovim = {lib, ...}:{
     programs.nvf.settings.vim = {
+    hideSearchHighlight = true;
+    syntaxHighlighting = true;
+    preventJunkFiles = true;
+    bell = "visual";
+    searchCase = "smart";
         visuals.highlight-undo.enable = true;
         clipboard = {
           enable = true;
@@ -12,17 +17,14 @@
         };
         options = {
           autoindent = true;
-          backspace = { "indent", "eol", "start" };
           backup = false;
           breakindent = true;
           cmdheight = 0;
-          completeopt = { "menuone", "noselect", "noinsert" };
           conceallevel = 0;
           confirm = true;
           cursorlineopt = "both";
           expandtab = true;
           fileencoding = "utf-8";
-          hlsearch = true;
           hidden = true; 
           guicursor = "a:hor1";
           linebreak = true;
@@ -32,7 +34,6 @@
           showmode = false;
           softtabstop = 2;
           signcolumn = "yes";
-          smartcase = true;
           splitbelow = true;
           splitright = true;
           swapfile = false;
@@ -46,8 +47,7 @@
           wrap = true;
           writebackup = false;
         };
-        luaConfigRC =  { 
-          options = lib.nvim.dag.entryAnywhere ''
+        luaConfigRC.options = inputs.nvf.lib.nvim.dag.entryAnywhere ''
             vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't auto-insert comment leader
             vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
             vim.opt.iskeyword:append("-") -- Treat `-` as part of a word
@@ -59,8 +59,7 @@
                 diff = "╱",
                 eob = " ",
                 })
-          ''};
+          '';};
 
-      };
     };
               }

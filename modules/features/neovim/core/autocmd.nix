@@ -74,7 +74,7 @@
     {
       enable = true;
       event = [ "FileType" ];
-      pattern = [ "text", "plaintex", "typst", "gitcommit", "markdown" ];
+      pattern = [ "text" "plaintex" "typst" "gitcommit" "markdown" ];
       desc = " Enable wrap + spell checking for certain filetypes";
       callback = lib.generators.mkLuaInline ''
         function() 

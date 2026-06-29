@@ -4,6 +4,7 @@
       hyprland
       sddm
       media
+      neovim
     ];
     homeModules.indransh = {config, lib, pkgs, ...}: {
     imports = with self.homeModules; [

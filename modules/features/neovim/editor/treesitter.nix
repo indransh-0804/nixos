@@ -1,5 +1,5 @@
 {inputs, ...}:{
-  flake.nixosModules.neovim = {config, ...}:{
+  flake.nixosModules.neovim = {config, pkgs, ...}:{
     programs.nvf.settings.vim = {
       treesitter = {
         enable = true;
@@ -7,7 +7,7 @@
         addDefaultGrammars = true;
         highlight.enable = true;
         indent.enable = true;
-        grammars = with vimPlugins.nvim-treesitter-parsers; [
+        grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
         lua 
         luadoc
         nix
@@ -23,6 +23,7 @@
         gitignore
         git_config
         git_rebase
+        ];
       };
     };
   };

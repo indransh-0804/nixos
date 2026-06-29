@@ -8,9 +8,9 @@
           lsp_format = "fallback";
         };
         formatters_by_ft = {
-          lua = {"stylua"};
-          rust = { "rustfmt" };
-          nix = { "nixfmt" };
+          lua = ["stylua"];
+          rust = [ "rustfmt" ];
+          nix = [ "nixfmt" ];
         };
       };
     };

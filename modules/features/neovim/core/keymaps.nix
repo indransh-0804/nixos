@@ -1,5 +1,5 @@
 {inputs, ...}:{
-  flake.nixosModules.neovim  { lib, ...}:{
+  flake.nixosModules.neovim = { lib, ...}:{
     programs.nvf.settings.vim.keymaps = [
 # Window navigation
     {

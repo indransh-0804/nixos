@@ -30,6 +30,8 @@ flake.nixosModules.packages = {
     playerctl
     bluez
     blueman
+    nixd
+    statix
   ];
 };
 }

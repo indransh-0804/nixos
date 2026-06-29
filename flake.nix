@@ -32,11 +32,11 @@
     hyprland.url = "github:hyprwm/Hyprland";
     import-tree.url = "github:vic/import-tree";
     nh.url = "github:nix-community/nh";
-    nixflix = {
-      url = "github:kiriwalawren/nixflix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nvf = {
+      url = "github:NotAShelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
     sops-nix = {
       url = "github:Mic92/sops-nix";

@@ -1,17 +1,27 @@
-{inputs, ...}:{
-  flake.nixosModules.neovim = { lib, ...}:{
+{
+  flake.nixosModules.neovim = {
     programs.nvf.settings.vim.utility.snacks-nvim = {
       enable = true;
       setupOpts = {
         indent = {
           enabled = true;
+          hl = [
+            "SnacksIndent1"
+            "SnacksIndent2"
+            "SnacksIndent3"
+            "SnacksIndent4"
+            "SnacksIndent5"
+            "SnacksIndent6"
+            "SnacksIndent7"
+            "SnacksIndent8"
+          ];
         };
         animate = {
           enabled = true;
           style = "out";
           easing = "linear";
           duration = {
-            step = 20; 
+            step = 20;
             total = 500;
           };
         };
@@ -36,4 +46,4 @@
       };
     };
   };
-  }
+}

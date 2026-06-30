@@ -22,8 +22,7 @@
         },
         color_overrides = {
             mocha = {
-            base = "#000000",
-            crust = "#000000"
+            base = "#11111b",
             },
         },
                 default_integrations = true,

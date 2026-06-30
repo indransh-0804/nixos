@@ -7,10 +7,6 @@
       bell = "visual";
       searchCase = "smart";
       mini.cursorword.enable = true;
-      visuals = {
-        highlight-undo.enable = true;
-        nvim-cursorline.enable = true;
-      };
       clipboard = {
         enable = true;
         registers = "unnamedplus";
@@ -26,7 +22,8 @@
         cmdheight = 0;
         conceallevel = 0;
         confirm = true;
-        cursorlineopt = "screenline";
+        cursorline = true;
+        cursorlineopt = "both";
         expandtab = true;
         fileencoding = "utf-8";
         hidden = true;

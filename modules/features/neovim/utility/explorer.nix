@@ -1,6 +1,6 @@
-{
+{ lib, ... }: {
   flake.nixosModules.neovim = {
-    programs.nvf.settings.vim.utility.snacks-nvim = { lib, ... }: {
+    programs.nvf.settings.vim.utility.snacks-nvim = {
       enable = true;
       setupOpts = lib.generators.mkLuaInline ''
         {
@@ -13,8 +13,9 @@
               explorer = {
                 auto_close = true, -- close the picker when a file is opened
                 layout = {
+                  auto_hide = { "input"},
                   layout = {
-                    width = 30, -- fixed width of 30 columns on the left
+                    max_width = 30, -- fixed width of 30 columns on the left
                   },
                 },
                 win = {

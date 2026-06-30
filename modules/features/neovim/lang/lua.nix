@@ -1,5 +1,5 @@
-{inputs, ...}:{
-  flake.nixosModules.neovim = {config, ...}:{
+{
+  flake.nixosModules.neovim = {
     programs.nvf.settings.vim = {
       languages.lua = {
         enable = true;
@@ -13,5 +13,4 @@
       };
     };
   };
-              }
-
+}

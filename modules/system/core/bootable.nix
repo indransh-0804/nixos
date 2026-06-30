@@ -1,15 +1,13 @@
-{self, lib, ... }:
 {
-  flake.nixosModules.boot =
-  {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.nixosModules.boot = {
     boot = {
       initrd = {
         luks.devices."cryptnixos" = {
           device = "/dev/disk/by-label/NIXOS_LUKS";
+          keyFile = "/etc/luks-keyfile";
+        };
+        secrets = {
+          "/etc/luks-keyfile" = "/etc/luks-keyfile";
         };
       };
       loader = {

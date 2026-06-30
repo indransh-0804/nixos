@@ -1,22 +1,26 @@
-{self, inputs, ...}:{
-flake.nixosModules.fonts = { pkgs, ... }:
 {
-  fonts = {
-    packages = with pkgs; [
-      nerd-fonts.symbols-only
-      maple-mono.NF
-      inter
-      fira-code
-    ];
+  flake.nixosModules.fonts =
+    { pkgs, ... }:
+    {
+      fonts = {
+        packages = with pkgs; [
+          nerd-fonts.symbols-only
+          maple-mono.truetype
+          fira-code
+          noto-fonts
 
-    enableDefaultPackages = false;
+        ];
 
-    fontconfig.defaultFonts = {
-      serif = [ "Inter" ];
-      sansSerif = [ "Inter" ];
-      monospace = [ "Maple Mono NF" "Fira Code" ];
+        enableDefaultPackages = false;
+
+        fontconfig.defaultFonts = {
+          serif = [ ];
+          sansSerif = [ ];
+          monospace = [
+            "Maple Mono"
+            "Cascadia Code"
+          ];
+        };
+      };
     };
-  };
-};
 }
-

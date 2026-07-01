@@ -30,7 +30,7 @@
         guicursor = "a:hor15";
         linebreak = true;
         mouse = "a";
-        numberwidth = 2;
+        numberwidth = 4;
         shiftwidth = 2;
         showmode = false;
         softtabstop = 2;

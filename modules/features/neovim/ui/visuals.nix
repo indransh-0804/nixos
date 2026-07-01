@@ -12,7 +12,6 @@
         globalStyle = "rounded";
       };
       mini = {
-        animate.enable = true;
         icons.enable = true;
       };
     };

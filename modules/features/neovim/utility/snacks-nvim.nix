@@ -8,7 +8,8 @@
                   dashboard = { enabled = false },
                   input = { enabled = true },
                   notifier = {
-                    enabled = false,
+                    enabled = true,
+                    timeout = 3000,
                   },
                   quickfile = { enabled = true },
                   scroll = { enabled = true },
@@ -34,7 +35,6 @@
                     },
                   },
                       explorer = {
-                      focus = "input",
                       auto_close = true,
                         layout = {
                           auto_hide = { "input"},

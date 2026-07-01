@@ -7,6 +7,7 @@
         inlayHints.enable = true;
         lspSignature.enable = false;
         presets.harper.enable = true;
+        trouble.enable = true;
       };
     };
   };

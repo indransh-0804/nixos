@@ -2,6 +2,10 @@
   flake.nixosModules.neovim = { lib, ... }: {
     programs.nvf.settings.vim = {
       ui.colorful-menu-nvim.enable = true;
+      snippets.luasnip = {
+        enable = true;
+        providers = [ "friendly-snippets" ];
+      };
       autocomplete.blink-cmp = {
         enable = true;
         friendly-snippets.enable = true;

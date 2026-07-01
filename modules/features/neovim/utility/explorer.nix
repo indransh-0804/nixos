@@ -14,9 +14,6 @@
                 auto_close = true, -- close the picker when a file is opened
                 layout = {
                   auto_hide = { "input"},
-                  layout = {
-                    max_width = 30, -- fixed width of 30 columns on the left
-                  },
                 },
                 win = {
                   input = {

@@ -1,9 +1,8 @@
 {
   flake.nixosModules.neovim = {
     programs.nvf.settings.vim = {
-      snippets.luasnip = {
+      notify.nvim-notify = {
         enable = true;
-        providers = [ "friendly-snippets" ];
       };
     };
   };

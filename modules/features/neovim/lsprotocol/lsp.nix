@@ -5,7 +5,7 @@
         enable = true;
         formatOnSave = true;
         inlayHints.enable = true;
-        lspSignature.enable = true;
+        lspSignature.enable = false;
         presets.harper.enable = true;
       };
     };

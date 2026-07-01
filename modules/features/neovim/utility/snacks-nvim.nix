@@ -1,23 +1,35 @@
-{ lib, ... }: {
-  flake.nixosModules.neovim = {
+{
+  flake.nixosModules.neovim = { lib, ... }: {
     programs.nvf.settings.vim.utility.snacks-nvim = {
       enable = true;
       setupOpts = lib.generators.mkLuaInline ''
         {
+          bigfile = { enabled = true },
+          dashboard = { enabled = false },
+          input = { enabled = true },
+          notifier = {
+            enabled = false,
+          },
+          quickfile = { enabled = true },
+          scope = { enabled = true },
+          scroll = { enabled = true },
+          statuscolumn = { enabled = true },
+          words = { enabled = true },
           explorer = {
-            replace_netrw = true, -- Replace netrw with the snacks explorer
-            trash = true, -- Use the system trash when deleting files
+            replace_netrw = true, 
+            trash = true, 
           },
           picker = {
+          enabled = true,
             sources = {
               explorer = {
-                auto_close = true, -- close the picker when a file is opened
                 layout = {
+                auto_close = true,==
                   auto_hide = { "input"},
                 },
                 win = {
                   input = {
-                    enabled = false, -- no search input box at the top
+                    enabled = false,
                   },
                 },
                 formatters = {

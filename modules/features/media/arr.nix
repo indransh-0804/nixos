@@ -1,50 +1,36 @@
 {
-  flake.modules.nixos.media = {
-    services = {
+	flake.modules.nixos.media = {config, ...}: {
+		nixflix = {
+			prowlarr = {
+				enable = true;
+				config = {
+					apiKey._secret = config.sops.secrets."prowlarr/api_key".path;
+					hostConfig.password._secret = config.sops.secrets."prowlarr/password".path;
+				};
+			};
+			sonarr = {
+				enable = true;
+				config = {
+					apiKey._secret = config.sops.secrets."sonarr/api_key".path;
+					hostConfig.password._secret = config.sops.secrets."sonarr/password".path;
+				};
+			};
 
-      jellyfin = {
-        enable = true;
-        group = "media";
-      };
 
-      prowlarr = {
-        enable = true;
-        settings = {
-          server.port = 9696;
-          update.automatically = false;
-          auth.required = "DisabledForLocalAddresses";
-        };
-      };
-
-      sonarr = {
-        enable = true;
-        group = "media";
-        settings = {
-          server.port = 8989;
-          update.automatically = false;
-          auth.required = "DisabledForLocalAddresses";
-        };
-      };
-
-      radarr = {
-        enable = true;
-        group = "media";
-        settings = {
-          server.port = 7878;
-          update.automatically = false;
-          auth.required = "DisabledForLocalAddresses";
-        };
-      };
-
-      lidarr = {
-        enable = true;
-        group = "media";
-        settings = {
-          server.port = 8686;
-          update.automatically = false;
-          auth.required = "DisabledForLocalAddresses";
-        };
-      };
-    };
-  };
-}
+			radarr = {
+				enable = true;
+				config = {
+					apiKey._secret = config.sops.secrets."radarr/api_key".path;
+					hostConfig.password._secret = config.sops.secrets."radarr/password".path;
+				};
+			};
+			lidarr = {
+				enable = true;
+				config = {
+					apiKey._secret = config.sops.secrets."radarr/api_key".path;
+					hostConfig.password._secret = config.sops.secrets."radarr/password".path;
+				};
+			};
+		};
+	};
+	}

@@ -28,7 +28,7 @@
         #  backgroundColor = "#1A1C1E";      # Hex color code
         #  textColor = "#E2E2E6";            # Hex color code
         fontFamily = "Fira Code"; # Font family name
-        fontSize = 15; # Font size in px
+        fontSize = 10; # Font size in px
       })
     ];
   };

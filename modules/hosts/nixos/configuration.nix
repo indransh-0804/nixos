@@ -8,6 +8,7 @@
         filesystem
         indransh
         system
+	secrets
       ];
 
       networking.hostName = "nixos";

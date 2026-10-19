@@ -1,4 +1,4 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
   description = "Indransh Sharma's Nixos Configuration";
@@ -33,6 +33,10 @@
     hyprland.url = "github:hyprwm/Hyprland";
     import-tree.url = "github:vic/import-tree";
     nh.url = "github:nix-community/nh";
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     nvf = {
@@ -40,10 +44,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pixie-sddm.url = "github:xCaptaiN09/pixie-sddm";
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    sops-nix.url = "github:Mic92/sops-nix";
     systems.url = "github:nix-systems/default";
   };
 }

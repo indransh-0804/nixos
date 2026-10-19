@@ -9,8 +9,21 @@ return {
     terminal                   = "wezterm",
     browser                    = "firefox",
     editor                     = "nvim",
-    fileExplorer               = "thunar",
-    audioSettings              = "pwvucontrol",
+    fileExplorer               = "nemo",
+    audioSettings              = "pavucontrol",
+
+    -- Screenshot (hyprshot)
+    screenshotCmd              = "hyprshot -m output -o ~/Pictures/Screenshots",
+    screenshotFreezeCmd        = "hyprshot -m region --freeze -o ~/Pictures/Screenshots",
+    screenshotRegionCmd        = "hyprshot -m region -o ~/Pictures/Screenshots",
+    -- Media player
+    playerCmd                  = "playerctl",
+
+    -- Brightness
+    brightnessCmd              = "brightnessctl",
+    brightnessStep             = 5,                    -- percent per key press
+    kbdBacklightDevice         = "*kbd_backlight*",    -- check with `brightnessctl --list`
+    kbdBacklightStep           = 1,                    -- raw levels, most keyboards only have 2-4
 
     -- Touchpad
     touchpadDisableTyping      = true,
@@ -24,7 +37,7 @@ return {
     blurSpecialWs              = false,
     blurPopups                 = true,
     blurInputMethods           = true,
-    blurSize                   = 8,
+    blurSize                   = 6,
     blurPasses                 = 2,
     blurXray                   = false,
 
@@ -35,14 +48,14 @@ return {
     shadowColour               = "rgba(" .. scheme.inversePrimary .. "10)",
 
     -- Gaps
-    workspaceGaps              = 20,
-    windowGapsIn               = 5,
-    windowGapsOut              = 10,
-    singleWindowGapsOut        = 20,
+    workspaceGaps              = 8,
+    windowGapsIn               = 2,
+    windowGapsOut              = 4,
+    singleWindowGapsOut        = 6,
 
     -- Window styling
-    windowOpacity              = 0.95,
-    windowRounding             = 15,
+    windowOpacity              = 0.85,
+    windowRounding             = 16,
     windowRoundingPower        = 2,
     windowBorderSize           = 1,
     activeWindowBorderColour   = "rgba(" .. scheme.primary .. "e6)",
@@ -94,58 +107,54 @@ return {
 
     kbMoveWindow               = "SUPER + Z",
     kbResizeWindow             = "SUPER + X",
-    kbCenterWindow             = "CTRL + SUPER + Backslash",
-    kbNormalizeWindow          = "CTRL + SUPER + ALT + Backslash",
-    kbWindowPip                = "SUPER + ALT + Backslash",
     kbPinWindow                = "SUPER + P",
-    kbWindowFullscreen         = "SUPER + F",
-    kbWindowBorderedFullscreen = "SUPER + ALT + F",
+    kbWindowFullscreen         = "SUPER + A",
+    kbWindowBorderedFullscreen = "SUPER + ALT + A",
     kbToggleWindowFloating     = "SUPER + ALT + Space",
-    kbCloseWindow              = "SUPER + Q",
+    kbCloseWindow              = "SUPER + ESCAPE",
 
     -- Special workspaces toggles
     kbSpecialWs                = "SUPER + S",
-    kbSystemMonitorWs          = "CTRL + SHIFT + Escape",
     kbMusicWs                  = "SUPER + M",
     kbCommunicationWs          = "SUPER + D",
     kbTodoWs                   = "SUPER + R",
 
+    -- Scrolling layout
+    kbScrollLeft               = { "SUPER + bracketleft", "SUPER + SHIFT + mouse_up" },
+    kbScrollRight              = { "SUPER + bracketright", "SUPER + SHIFT + mouse_down" },
+    kbSwapColLeft              = "SUPER + SHIFT + bracketleft",
+    kbSwapColRight             = "SUPER + SHIFT + bracketright",
+    kbColWidthNext             = "SUPER + Period",
+    kbColWidthPrev             = "SUPER + SHIFT + Period",
+    kbConsumeWindow            = "SUPER + I",
+    kbExpelWindow              = "SUPER + O",
+    kbFitAll                   = "SUPER + SHIFT + Slash",
+
     -- Apps
-    kbTerminal                 = "SUPER + T",
-    kbBrowser                  = "SUPER + W",
-    kbEditor                   = "SUPER + C",
-    kbFileExplorer             = "SUPER + E",
+    kbTerminal                 = "SUPER + RETURN",
+    kbBrowser                  = "SUPER + B",
+    kbEditor                   = "SUPER + E",
+    kbFileExplorer             = "SUPER + F",
     kbAudioSettings            = "CTRL + ALT + V",
 
+    -- Screenshots
+    kbScreenshot               = "SHIFT + Print",
+    kbScreenshotFreeze         = "Print",
+
     -- Utilities
-    kbScreenshot               = "Print",
-    kbScreenshotFreeze         = "SUPER + SHIFT + S",
-    kbScreenshotRegion         = "SUPER + SHIFT + ALT + S",
-    kbRecord                   = "CTRL + ALT + R",
-    kbRecordSound              = "SUPER + ALT + R",
-    kbRecordRegion             = "SUPER + SHIFT + ALT + R",
     kbColorPicker              = "SUPER + SHIFT + C",
 
-    -- Media
-    kbMediaToggle              = "CTRL + SUPER + Space",
-    kbMediaNext                = "CTRL + SUPER + Equal",
-    kbMediaPrev                = "CTRL + SUPER + Minus",
-    kbMediaStop                = "CTRL + SUPER + Backspace",
-    kbVolumeMute               = "SUPER + SHIFT + M",
+    -- Brightness
+    kbBrightnessUp             = "XF86MonBrightnessUp",
+    kbBrightnessDown           = "XF86MonBrightnessDown",
+
+    -- Keyboard backlight
+    kbKbdBacklightUp           = "XF86KbdBrightnessUp",
+    kbKbdBacklightDown         = "XF86KbdBrightnessDown",
 
     -- Misc
-    kbLauncher                 = "SUPER + SUPER_L",
-    kbSession                  = "CTRL + ALT + Delete",
-    kbShowSidebar              = "SUPER + N",
-    kbClearNotifs              = "CTRL + ALT + C",
-    kbShowPanels               = "SUPER + K",
-    kbLock                     = "SUPER + L",
-    kbRestoreLock              = "SUPER + ALT + L",
     kbSleep                    = "SUPER + SHIFT + L",
 
-    -- Clipboard and emoji picker
-    kbClipboard                = "SUPER + V",
-    kbClipboardDel             = "SUPER + ALT + V",
+    -- Clipboard
     kbClipboardPasteLatest     = "CTRL + SHIFT + ALT + V",
-    kbEmoji                    = "SUPER + Period",
 }

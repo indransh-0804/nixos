@@ -12,17 +12,29 @@ hl.config({
     },
 })
 
+-- 3 fingers: slide the scrolling tape left/right (1:1 with your fingers)
+hl.gesture({ fingers = vars.gestureFingers, direction = "horizontal", action = "scroll_move" })
+
+-- 4 fingers: switch workspaces
 hl.gesture({ fingers = vars.workspaceSwipeFingers, direction = "horizontal", action = "workspace" })
-hl.gesture({ fingers = vars.gestureFingers, direction = "up", action = "special", workspace_name = "special" })
+
+-- Modifier-gated, so they can't fire by accident
+hl.gesture({ fingers = 3, direction = "up",   mods = "SUPER", scale = 1.5, action = "fullscreen" })
+hl.gesture({ fingers = 3, direction = "down", mods = "ALT", action = "close" })
+hl.gesture({ fingers = 3, direction = "left", mods = "SUPER", scale = 1.5, action = "float" })
+
+-- Move the focused window to the next/previous workspace (Lua function actions need hl.dispatch)
 hl.gesture({
-    fingers   = vars.gestureFingers,
-    direction = "down",
-    action    = fn.toggle("specialws"),
+    fingers = vars.gestureFingersMore, direction = "right", mods = "SUPER",
+    action = function() hl.dispatch(hl.dsp.window.move({ workspace = "e+1" })) end,
 })
 hl.gesture({
-    fingers   = vars.gestureFingersMore,
-    direction = "down",
-    action    = function()
-        hl.exec_cmd(vars.sleepGestureCmd)
-    end,
+    fingers = vars.gestureFingersMore, direction = "left", mods = "SUPER",
+    action = function() hl.dispatch(hl.dsp.window.move({ workspace = "e-1" })) end,
 })
+
+-- Pinch to zoom the screen (live, follows your fingers)
+hl.gesture({ fingers = 2, direction = "pinch", action = "cursorZoom", zoom_level = 1, mode = "live" })
+
+-- Launch something with a swipe
+hl.gesture({ fingers = 4, direction = "up", action = function() hl.exec_cmd(vars.terminal) end })

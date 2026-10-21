@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.terminal = { lib, ... }: {
+  flake.modules.homeManager.terminal = { lib, config, ... }: {
     programs.starship = {
       enable = true;
       enableTransience = true;

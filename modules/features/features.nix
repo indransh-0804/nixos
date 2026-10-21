@@ -6,6 +6,7 @@
       media
       catppuccin
       noctalia
+      terminal
     ];
     modules.homeManager.indransh =
       {

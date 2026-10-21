@@ -1,10 +1,12 @@
 {
-  flake.modules.homeManager.terminal = { lib, ... }: {
+  flake.modules.nixos.terminal = { lib, ... }: {
     programs.starship = {
       enable = true;
-      enableTransience = true;
-      enableInteractive = true;
-      enableFishIntegration = true;
+      transientPrompt = { 
+        enable = true;
+        left = "starship module character";
+        right = "starship module time";
+      };
 
       settings = {
         add_newline = false;

@@ -1,11 +1,42 @@
 {
-flake.modules.homeManager.terminal = {
-  programs.starship = {
-    enable = true;
-    enableTransience = true;
-    enableInteractive = true;
-    enableFishIntegration = true;
-  };
-};
-}
+  flake.modules.homeManager.terminal = { lib, ... }: {
+    programs.starship = {
+      enable = true;
+      enableTransience = true;
+      enableInteractive = true;
+      enableFishIntegration = true;
 
+      settings = {
+        add_newline = false;
+
+        format = lib.concatStrings [
+          "$username"
+          "$hostname"
+          "$directory"
+          "$git_branch"
+          "$git_status"
+          "$cmd_duration"
+          "$fill"
+          "$c"
+          "$cpp"
+          "$dart"
+          "$lua"
+          "$rust"
+          "$nix_shell"
+          "$jobs"
+          "$line_break"
+          "$character"
+        ];
+
+        username.format = "[$user]($style) ";
+        hostname.format = "[$ssh_symbol]($style) @ [$hostname]($style) ";
+        cmd_duration.format = "[$duration]($style)  ";   # paste the real glyph
+        fill.symbol = " ";
+        dart.format = "[ $version]($style) ";           # paste the real glyph
+        lua.format = "[󰢱  $version]($style) ";            # paste the real glyph
+        rust.format = " [$symbol($version)]($style) ";
+        nix_shell.format = "[$symbol$state( \\($name\\))]($style) ";
+      };
+    };
+  };
+}

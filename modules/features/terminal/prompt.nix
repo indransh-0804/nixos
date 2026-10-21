@@ -6,7 +6,7 @@
     enableInteractive = true;
     enableFishIntegration = true;
   };
-  xdg.configFile."starship.toml".text = ''
+  xdg.configFile."starship.toml".text = lib.mkDefault ''
 add_newline = false
 format = "$username$hostname$directory$git_branch$git_status$cmd_duration$fill$c$cpp$dart$lua$rust$nix_shell$jobs$line_break$character"
 palette = "catppuccin_mocha"

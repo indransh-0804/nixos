@@ -179,6 +179,16 @@ in
            echo "  doctor        up + clean + push"
        end
      '';
+
+     starship_transient_prompt_func = ''
+	starship module character 
+     '';
+
+     starship_transient_rprompt_func = ''
+	starship module time 
+     '';
+
+
    };
 
    completions = {

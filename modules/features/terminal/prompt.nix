@@ -1,5 +1,11 @@
 {
   flake.modules.homeManager.terminal = { lib, config, ... }: {
+  programs.starship = {
+    enable = true;
+    enableTransience = true;
+    enableInteractive = true;
+    enableFishIntegration = true;
+  };
   xdg.configFile."starship.toml".text = ''
 add_newline = false
 format = "$username$hostname$directory$git_branch$git_status$cmd_duration$fill$c$cpp$dart$lua$rust$nix_shell$jobs$line_break$character"

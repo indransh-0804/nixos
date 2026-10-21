@@ -4,14 +4,14 @@
     {
       users.users.indransh = {
         description = "Indransh Sharma";
-        shell = pkgs.zsh;
+        shell = pkgs.fish;
         createHome = true;
         isNormalUser = true;
         extraGroups = [
           "wheel"
             "networkmanager"
         ];
-        packages = with pkgs ; [ zsh neovim git ];  
+        packages = with pkgs ; [ fish neovim git ];  
       };
 
 

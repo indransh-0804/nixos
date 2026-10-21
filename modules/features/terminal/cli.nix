@@ -1,31 +1,31 @@
 {inputs, ...}:{
-flake.modules.homeManager.cli_tools = {config, ...}:{
+flake.modules.homeManager.terminal = {config, ...}:{
 programs.bat.enable = true;
 programs.direnv = {
 enable = true;
 silent = true;
-enableZshIntegration = true;
+enableFishIntegration = true;
 nix-direnv.enable = true;
 };
 programs.eza = {
 enable = true;
 colors = "always";
 git = true;
-enableZshIntegration = true;
+enableFishIntegration = true;
 icons = "always";
 };
 programs.fzf = {
 enable = true;
-enableZshIntegration = true;
+enableFishIntegration = true;
 };
 programs.ripgrep.enable = true;
 programs.yazi = {
 enable = true;
-enableZshIntegration = true;
+enableFishIntegration = true;
 };
 programs.zoxide = {
 enable = true;
-enableZshIntegration = true;
+enableFishIntegration = true;
 };
 };
 }

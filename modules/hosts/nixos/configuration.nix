@@ -19,7 +19,7 @@
         "flakes"
       ];
       nixpkgs.hostPlatform = "x86_64-linux";
-      environment.pathsToLink = [ "/share/zsh" ];
+      environment.pathsToLink = [ "/share/fish" ];
       hardware.cpu.amd.updateMicrocode = true;
       system.stateVersion = "26.05"; # <- Never Ever Change That
     };

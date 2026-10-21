@@ -1,7 +1,7 @@
 { inputs, ... }: {
   flake.modules.homeManager.zsh_shell = { config, pkgs, ... }: {
     programs.zsh = {
-      enable = true;
+      enable = false;
       defaultKeymap = "emacs";
       dotDir = "${config.home.homeDirectory}/zsh";
       autocd = true;
@@ -10,12 +10,8 @@
         "CORRECT"
       ];
 
-      # zsh-autocomplete runs compinit itself, so don't let Home Manager
-      # (or zsh_init.nix) run it a second time.
       enableCompletion = false;
-
-      # Zsh features replaced by antidote plugins below
-      autosuggestion.enable = false;      # replaced by deja
+      autosuggestion.enable = true; 
       syntaxHighlighting.enable = true;
 
       # History
@@ -35,10 +31,9 @@
         plugins = [
           "romkatv/powerlevel10k"
           "marlonrichert/zsh-autocomplete"
-          "Giammarco-Ferranti/deja"
+	  "Aloxaf/fzf-tab"
         ];
       };
     };
-    home.packages = [ pkgs.deja ];
   };
 }

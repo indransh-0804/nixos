@@ -14,9 +14,7 @@
       }:
       {
         imports = with inputs.self.modules.homeManager; [
-          wezterm
-          zsh_shell
-          cli_tools
+	terminal
           catppuccin
           hyprland
         ];

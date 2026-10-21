@@ -8,6 +8,7 @@
       audio
       network
       bluetooth
+      graphics
       location
       power
       nix

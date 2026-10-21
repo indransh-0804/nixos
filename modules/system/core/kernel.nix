@@ -9,7 +9,7 @@
     boot = {
       initrd = {
         availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod"];
-        kernelModules = ["dm-snapshot" "cryptd" "tcp_bbr" ];
+        kernelModules = ["dm-snapshot" "cryptd" "tcp_bbr" "ntsync" ];
       };
       kernelPackages = pkgs.linuxPackages_latest;
       kernelModules = ["kvm-amd"];

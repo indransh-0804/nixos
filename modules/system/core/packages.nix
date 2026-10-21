@@ -6,7 +6,7 @@ flake.modules.nixos.packages = {
 }: {
   programs = {
     firefox.enable = true;
-    zsh.enable = true;
+    fish.enable = true;
     dconf.enable = true;
   };
 

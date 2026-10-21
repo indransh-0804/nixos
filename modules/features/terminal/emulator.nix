@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.wezterm = {
+  flake.modules.homeManager.terminal = {
     programs.wezterm = {
       enable = true;
       enableZshIntegration = true;

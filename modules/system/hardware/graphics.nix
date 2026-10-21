@@ -1,18 +1,29 @@
 {
   flake.modules.nixos.graphics = { pkgs, ... }: {
-    hardware = { 
-      amdgpu.initrd.enable = true;
-    graphics = {
+    hardware.amdgpu.initrd.enable = true;
+
+    hardware.graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-      nvtopPackages.amd
-      libva-utils
+    };
+
+    environment.systemPackages = with pkgs; [
+      mangohud
+      winetricks
       vulkan-tools
+      libva-utils
       clinfo
-      ];
-    };
-    };
-  services.xserver.videoDrivers = [ "amdgpu" ];
+      lutris
+    ];
+
+ programs = { 
+ steam = {
+  enable = true;
+  extraCompatPackages = [ pkgs.proton-ge-bin ];
+};
+gamemode.enable = true;
+gamescope.enable = true;
+};
+
   };
 }

@@ -30,10 +30,10 @@
 
         username.format = "[$user]($style) ";
         hostname.format = "[$ssh_symbol]($style) @ [$hostname]($style) ";
-        cmd_duration.format = "[$duration]($style)  ";   # paste the real glyph
+        cmd_duration.format = "[$duration]($style)  ";  
         fill.symbol = " ";
-        dart.format = "[ $version]($style) ";           # paste the real glyph
-        lua.format = "[󰢱  $version]($style) ";            # paste the real glyph
+        dart.format = "[ $version]($style) ";       
+        lua.format = "[󰢱  $version]($style) ";      
         rust.format = " [$symbol($version)]($style) ";
         nix_shell.format = "[$symbol$state( \\($name\\))]($style) ";
       };

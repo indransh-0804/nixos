@@ -110,8 +110,6 @@ in
      nx = ''
        switch "$argv[1]"
          case deploy
-           __nx_stage "Checking for local changes"
-           __nx_commit_if_dirty "nx: auto-commit before deploy"
            __nx_stage "Building and switching to the new configuration"
            nh os switch -H nixos 
 

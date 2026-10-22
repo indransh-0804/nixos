@@ -13,11 +13,6 @@
         };
       };
 
-      iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
-      };
-
       font = {
         name = "Noto Sans";
         size = 11;

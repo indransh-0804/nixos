@@ -36,6 +36,12 @@ let
      lta   = "eza -a --tree --level=3";    # tree with hidden files, depth 3
      llt   = "eza -l --tree --level=3";    # long tree, depth 3
      llta  = "eza -la --tree --level=3";   # long tree with hidden files, depth 3
+
+     # laziness intensified 
+     nr = "nx deploy";
+     nc = "nx clean";
+     nu "nx up";
+     np = "nx push";
    };
 in 
 {

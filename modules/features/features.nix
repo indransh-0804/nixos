@@ -15,6 +15,7 @@
       {
         imports = with inputs.self.modules.homeManager; [
           terminal
+	  gtk
         ];
         home = {
           username = lib.mkDefault "indransh";

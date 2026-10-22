@@ -46,23 +46,6 @@ sources = inputs.catppuccin.x86_64-linux.packages.overrideScope (
         autoEnable = true;
         enable = true;
         flavor = "mocha";
-sources = inputs.catppuccin.x86_64-linux.packages.overrideScope (
-    final: prev: {
-      whiskers = pkgs.symlinkJoin {
-        name = "whiskers-wrapped";
-
-        paths = [ prev.whiskers ];
-        nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
-
-        postBuild = ''
-          wrapProgram $out/bin/whiskers \
-            --add-flag ${lib.escapeShellArg "--color-overrides=${builtins.toJSON oled}"}
-        '';
-
-        meta.mainProgram = "whiskers";
-      };
-    }
-  );
       };
     };
   };

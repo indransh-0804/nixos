@@ -6,7 +6,6 @@
 			defaultSopsFile = ../../../secrets/secrets.yaml;
 			age = {
 				keyFile = "/home/indransh/.config/sops/age/keys.txt";
-				generateKey = true;
 			};
 			secrets = {
 				"sonarr/api_key" = {};

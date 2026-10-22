@@ -15,10 +15,13 @@ flake.modules.homeManager.gtk = {pkgs, ...}: {
         name = "Noto Sans Regular";
 	size = 11;
       };
-      iconTheme = { 
+      cursorTheme = { 
         name = "Bibata Modern Classic";
+	size = 22;
 	package = pkgs.bibata_cursor;
       };
+      gtk3.extraConfig.Settings = ''gtk-application-prefer-dark-themes=1'';
+      gtk4.extraConfig.Settings = ''gtk-application-prefer-dark-themes=1'';
     };
     };
     }

@@ -18,7 +18,7 @@ flake.modules.homeManager.gtk = {pkgs, ...}: {
       cursorTheme = { 
         name = "Bibata Modern Classic";
 	size = 22;
-	package = pkgs.bibata_cursor;
+	package = pkgs.bibata_cursors;
       };
       gtk3.extraConfig.Settings = ''gtk-application-prefer-dark-themes=1'';
       gtk4.extraConfig.Settings = ''gtk-application-prefer-dark-themes=1'';

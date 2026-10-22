@@ -3,6 +3,7 @@
   flake.modules = {
     nixos.catppuccin = {
       imports = [ inputs.catppuccin.nixosModules.catppuccin ];
+      home-manager.sharedModules = [ inputs.self.modules.homeManager.catpuccin ];
       catppuccin = {
         accent = "blue";
         autoEnable = true;

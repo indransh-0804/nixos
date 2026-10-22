@@ -4,6 +4,7 @@
 
   flake.modules = {
     nixos.hyprland = { pkgs, ... }: {
+      home-manager.sharedModules = [ inputs.self.modules.homeManager.hyprland ];
       programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

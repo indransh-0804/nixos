@@ -14,9 +14,7 @@
       }:
       {
         imports = with inputs.self.modules.homeManager; [
-	terminal
-          catppuccin
-          hyprland
+          terminal
         ];
         home = {
           username = lib.mkDefault "indransh";

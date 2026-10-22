@@ -10,6 +10,7 @@ flake.modules.homeManager.gtk = {pkgs, ...}: {
 	tweaks = [ "black" ];
 	variant = "mocha";
       };
+      };
       font = {
         name = "Noto Sans Regular";
 	size = 11;
@@ -18,7 +19,6 @@ flake.modules.homeManager.gtk = {pkgs, ...}: {
         name = "Bibata Modern Classic";
 	package = pkgs.bibata_cursor;
       };
-    };
     };
     };
     }

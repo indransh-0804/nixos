@@ -40,7 +40,7 @@ let
      # laziness intensified 
      nr = "nx deploy";
      nc = "nx clean";
-     nu "nx up";
+     nu = "nx up";
      np = "nx push";
    };
 in 

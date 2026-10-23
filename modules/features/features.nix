@@ -15,6 +15,7 @@
       {
         imports = with inputs.self.modules.homeManager; [
           terminal
+	  starship
 	  gtk
         ];
         home = {
